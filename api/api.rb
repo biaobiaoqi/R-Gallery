@@ -1,5 +1,7 @@
+#encoding=UTF-8
 require 'grape'
 require 'rack/contrib'
+require 'yaml'
 
 module Biaobiaoqi
   class API < Grape::API
@@ -10,11 +12,9 @@ module Biaobiaoqi
     end
 
     get '/getPhotosLists' do
-      {:photos => { :photo => [
-        {:id =>"fixedgearIMG_1010.JPG", :title =>"This is a Title"}, 
-        {:id =>"zombie2013-12-15%2023.44.48.png", :title =>"Zombie"}, 
-        {:id =>"zombie2013-12-15%2023.51.51.png", :title =>"Zombie"} 
-      ]}}
+      content_type "text/plain"
+      YAML.load(File.open("./db/photos.yml"))
+      #{:photos => { :photo => [{:id =>"fixedgearIMG_1010.JPG", :title =>"This is a Title"}, {:id =>"fixedgearIMG_1019.JPG", :title =>"The seconde one"}]}}
     end
   end
 end
