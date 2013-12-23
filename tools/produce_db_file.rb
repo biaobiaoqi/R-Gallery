@@ -19,7 +19,7 @@ data = YAML.load(File.open('../db/horiz_photos.yml'))
 puts data
 
 
-file_names = IO.readlines('verti_list')
+file_names = IO.readlines('vertic_list')
 
 data = {'photos' => []}
 file_names.each do |pic_id|
@@ -29,9 +29,9 @@ file_names.each do |pic_id|
 end
 
 
-File.open('../db/verti_photos.yml', "w") {|f| YAML.dump(data, f)}
+File.open('../db/vertic_photos.yml', "w") {|f| YAML.dump(data, f)}
 
 puts '=============produce verti_photos============'
 
-data = YAML.load(File.open('../db/verti_photos.yml'))
+data = YAML.load(File.open('../db/vertic_photos.yml'))
 puts data
