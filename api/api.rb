@@ -11,9 +11,13 @@ module Biaobiaoqi
       { :status => "OK" }
     end
 
-    get '/getPhotosLists' do
-      YAML.load(File.open("./db/photos.yml"))
+    get '/getVerticPhotosList' do
+      YAML.load(File.open("./db/verti_photos.yml"))
       #{:photos => { :photo => [{:id =>"fixedgearIMG_1010.JPG", :title =>"This is a Title"}, {:id =>"fixedgearIMG_1019.JPG", :title =>"The seconde one"}]}}
+    end
+
+    get '/getHorizPhotosList' do
+      YAML.load(File.open("./db/horiz_photos.yml")
     end
   end
 end
